@@ -1,0 +1,34 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# env
+.env
+.env*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor / os
+.DS_Store
+Thumbs.db
+*.pem
+
+# vercel
+.vercel
+
+# original design prototype (Claude Design Canvas) — kept locally as design
+# reference only; its usable assets were already copied into public/images
+Home de irrigação com 3D/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
