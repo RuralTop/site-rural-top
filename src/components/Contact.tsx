@@ -18,6 +18,13 @@ export default function Contact() {
     const assunto = get("assunto");
     const mensagem = get("mensagem") || "Gostaria de falar sobre irrigação.";
     const telefone = get("telefone");
+
+    fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nome, telefone, cidade, assunto, mensagem }),
+    }).catch((err) => console.error("Falha ao notificar por e-mail:", err));
+
     setWaMessage(
       `Olá! Sou ${nome}, de ${cidade}. Assunto: ${assunto}. ${mensagem} Meu contato: ${telefone}`
     );
