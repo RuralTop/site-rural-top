@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { processSteps } from "@/data/content";
 import { darkFade } from "@/lib/fade";
 
 export default function Process() {
   const lineRef = useRef<HTMLDivElement>(null);
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
     const el = lineRef.current;
@@ -13,7 +14,7 @@ export default function Process() {
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
-          el.style.transform = "scaleX(1)";
+          setRevealed(true);
           io.disconnect();
         }
       },
@@ -50,7 +51,9 @@ export default function Process() {
           <div className="absolute left-0 right-0 top-[38px] hidden h-0.5 bg-line sm:block" />
           <div
             ref={lineRef}
-            className="absolute left-0 right-0 top-[38px] hidden h-0.5 origin-left scale-x-0 bg-gradient-to-r from-green to-blue transition-transform duration-[1800ms] ease-[cubic-bezier(0.22,0.61,0.36,1)] sm:block"
+            className={`absolute left-0 right-0 top-[38px] hidden h-0.5 origin-left bg-gradient-to-r from-green to-blue transition-transform duration-[1800ms] ease-[cubic-bezier(0.22,0.61,0.36,1)] sm:block ${
+              revealed ? "scale-x-100" : "scale-x-0"
+            }`}
           />
           <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-5">
             {processSteps.map((step) => (
