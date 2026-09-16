@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: #2e6b3e;
+  color: #f5f3ee;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scroll-reveal used on solution/gallery imagery */
+[data-reveal] {
+  animation: rtreveal 1.05s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes rtreveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
