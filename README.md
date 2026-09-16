@@ -134,16 +134,40 @@ projeto sendo desenvolvido.
 
 ## Variáveis de ambiente
 
-Veja `.env.example`. Nenhuma delas é secreta — existem só para não precisar
-editar código ao trocar o domínio de produção ou o número de WhatsApp:
+Veja `.env.example`. Nenhuma delas é secreta em si (a `RESEND_API_KEY` é a
+exceção — nunca commitar seu valor real; ela só deve existir em `.env.local`
+ou nas variáveis de ambiente da hospedagem):
 
 | Variável | Para que serve | Exemplo |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | URL canônica do site, usada em SEO (Open Graph, sitemap.xml, robots.txt) | `https://www.ruraltop.com.br` |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Número de WhatsApp comercial usado em todos os botões/links do site — DDI + DDD + número, só dígitos | `5561996324385` |
+| `RESEND_API_KEY` | *(opcional)* chave de API do [Resend](https://resend.com), para notificar por e-mail cada envio do formulário de contato | `re_xxxxxxxx` |
+| `CONTACT_EMAIL_TO` | *(opcional)* e-mail que recebe a notificação | `contato@ruraltop.com.br` |
+| `RESEND_FROM_EMAIL` | *(opcional)* remetente do e-mail; sem domínio verificado no Resend, use o padrão sandbox | `Rural Top <onboarding@resend.dev>` |
 
-Ao fazer o deploy (Vercel ou outro), configure essas duas variáveis no painel
-da plataforma antes do primeiro build de produção.
+Ao fazer o deploy (Vercel ou outro), configure essas variáveis no painel da
+plataforma antes do primeiro build de produção.
+
+### Notificação por e-mail do formulário de contato
+
+O formulário de contato sempre funciona pelo WhatsApp (não depende de nada
+abaixo). A notificação por e-mail é uma camada extra, **opcional**, via
+[Resend](https://resend.com), implementada em `src/app/api/contact/route.ts`.
+
+**Status atual: desativada.** Ao testar, o envio para `contato@ruraltop.com.br`
+falhou porque a conta Resend usada ainda não tem um domínio verificado — nesse
+modo ("sandbox"), o Resend só permite enviar para o e-mail que criou a conta,
+não para qualquer destinatário. Sem `RESEND_API_KEY`/`CONTACT_EMAIL_TO`
+configuradas, a rota simplesmente não faz nada (retorna sucesso sem tentar
+enviar) — o site continua funcionando 100% pelo WhatsApp.
+
+Para ativar de verdade:
+
+1. Entrar em [resend.com/domains](https://resend.com/domains) e adicionar `ruraltop.com.br`
+2. Copiar os registros de DNS que o Resend mostrar (geralmente TXT + CNAME + MX) e cadastrá-los no provedor onde o domínio está registrado
+3. Esperar o Resend confirmar a verificação (pode levar minutos a algumas horas)
+4. Preencher `RESEND_API_KEY`, `CONTACT_EMAIL_TO=contato@ruraltop.com.br` e `RESEND_FROM_EMAIL=Rural Top <algo@ruraltop.com.br>` no `.env.local` (local) e nas variáveis de ambiente da hospedagem (produção)
 
 ## Scripts disponíveis
 
