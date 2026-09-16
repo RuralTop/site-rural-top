@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { storeTags, whatsappLink } from "@/data/content";
+import { darkFade } from "@/lib/fade";
 
 export default function Store() {
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -24,6 +25,12 @@ export default function Store() {
     <section
       data-screen-label="Loja"
       className="bg-[#F7F5F0] px-4 py-16 sm:px-8 sm:py-24 lg:py-32"
+      style={{
+        backgroundImage: darkFade("0deg"),
+        backgroundSize: "100% clamp(190px,22vw,300px)",
+        backgroundPosition: "bottom",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
         <div>

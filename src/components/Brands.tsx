@@ -1,4 +1,5 @@
 import { brandsRepresented, brandsSupplied, type Brand } from "@/data/content";
+import { darkFade } from "@/lib/fade";
 
 const accentStyles: Record<Brand["accent"], { bg: string; border: string; nameColor: string; dot: string }> = {
   "green-strong": { bg: "rgba(22,78,43,.06)", border: "#2E6B3E", nameColor: "#164E2B", dot: "#2E6B3E" },
@@ -59,6 +60,12 @@ export default function Brands() {
     <section
       data-screen-label="Marcas"
       className="bg-[#F2F1E9] px-4 py-14 sm:px-8 sm:py-24"
+      style={{
+        backgroundImage: `${darkFade("180deg")},linear-gradient(180deg,#F4F2EB 0%,#EFF2E8 100%)`,
+        backgroundSize: "100% clamp(190px,22vw,300px),100% 100%",
+        backgroundPosition: "top,top",
+        backgroundRepeat: "no-repeat,no-repeat",
+      }}
     >
       <div className="relative mx-auto max-w-content">
         <h2 className="mb-7 max-w-[24ch] font-sans text-[22px] font-semibold uppercase leading-[1.1] tracking-[-0.025em] sm:mb-11 sm:text-[34px]">

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { solutions, maintenanceCard, whatsappLink } from "@/data/content";
+import { darkFade } from "@/lib/fade";
 
 export default function Solutions() {
   return (
@@ -7,6 +8,12 @@ export default function Solutions() {
       id="solucoes"
       data-screen-label="Soluções"
       className="bg-cream-alt px-4 py-16 sm:px-8 sm:py-24 lg:py-32"
+      style={{
+        backgroundImage: `${darkFade("180deg")},${darkFade("0deg")}`,
+        backgroundSize: "100% clamp(190px,22vw,300px),100% clamp(190px,22vw,300px)",
+        backgroundPosition: "top,bottom",
+        backgroundRepeat: "no-repeat,no-repeat",
+      }}
     >
       <div className="mx-auto max-w-content">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-6 sm:mb-14">

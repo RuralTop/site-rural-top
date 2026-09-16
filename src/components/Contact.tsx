@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { site, whatsappLink } from "@/data/content";
+import { darkFade } from "@/lib/fade";
 
 const subjects = ["Novo projeto", "Ampliação", "Manutenção", "Peças", "Bombeamento", "Outro"];
 
@@ -36,6 +37,12 @@ export default function Contact() {
       id="contato"
       data-screen-label="Contato"
       className="bg-night-alt px-4 py-16 text-cream sm:px-8 sm:py-24 lg:py-32"
+      style={{
+        backgroundImage: darkFade("180deg"),
+        backgroundSize: "100% clamp(200px,26vw,380px)",
+        backgroundPosition: "top",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <div className="mx-auto max-w-content">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">

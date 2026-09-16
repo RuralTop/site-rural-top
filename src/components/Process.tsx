@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { processSteps } from "@/data/content";
+import { darkFade } from "@/lib/fade";
 
 export default function Process() {
   const lineRef = useRef<HTMLDivElement>(null);
@@ -26,6 +27,12 @@ export default function Process() {
     <section
       data-screen-label="Processo"
       className="bg-cream px-4 py-16 sm:px-8 sm:py-24 lg:py-32"
+      style={{
+        backgroundImage: `${darkFade("180deg")},${darkFade("0deg")}`,
+        backgroundSize: "100% clamp(190px,22vw,300px),100% clamp(190px,22vw,300px)",
+        backgroundPosition: "top,bottom",
+        backgroundRepeat: "no-repeat,no-repeat",
+      }}
     >
       <div className="mx-auto max-w-content">
         <div className="mb-10 grid grid-cols-1 items-end gap-6 sm:mb-16 lg:grid-cols-2 lg:gap-16">
