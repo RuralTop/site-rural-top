@@ -32,3 +32,6 @@ Home de irrigação com 3D/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+.env*
