@@ -2,12 +2,12 @@ import Image from "next/image";
 import { site, whatsappLink } from "@/data/content";
 
 const stats = [
-  { value: "+15", label: "ANOS DE CAMPO" },
-  { value: "DF", label: "BRASÍLIA E REGIÃO" },
-  { value: "3 EM 1", label: "PROJETO • EQUIPAMENTO • IMPLANTAÇÃO" },
+  { value: "+16", label: "ANOS NO MERCADO AGRÍCOLA" },
+  { value: "300 KM", label: "DE COBERTURA REGIONAL" },
+  { value: "+400", label: "PROJETOS DE IRRIGAÇÃO IMPLANTADOS" },
+  { value: "EQUIPE TÉCNICA ESPECIALIZADA" },
+  { value: "REFERÊNCIA EM IRRIGAÇÃO AGRÍCOLA" },
 ];
-
-const flow = ["CAPTAÇÃO", "BOMBA", "FILTRO", "REDE", "EMISSORES"];
 
 export default function Hero() {
   return (
@@ -28,7 +28,7 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-[clamp(120px,16vw,220px)] bg-gradient-to-t from-night to-transparent" />
       </div>
 
-      <div className="relative mx-auto grid min-h-[76vh] max-w-content grid-cols-1 items-center gap-8 px-4 pt-10 sm:px-8 sm:pt-16 lg:grid-cols-2 lg:gap-14">
+      <div className="relative mx-auto grid min-h-[76vh] max-w-content grid-cols-1 items-center gap-8 px-4 pt-10 sm:px-8 sm:pt-16">
         <div className="max-w-[620px]">
           <p className="mb-5 font-mono text-xs font-semibold tracking-[0.16em] text-green-soft sm:mb-8">
             BRASÍLIA — DF E REGIÃO / DESDE 2009
@@ -64,25 +64,16 @@ export default function Hero() {
           </div>
           <div className="mt-9 flex flex-wrap gap-6 border-t border-cream/10 pb-10 pt-6 sm:mt-14 sm:gap-11 sm:pb-16 sm:pt-6">
             {stats.map((s) => (
-              <div key={s.label}>
-                <p className="font-sans text-[26px] font-semibold leading-none tracking-[-0.03em] sm:text-[34px]">
+              <div key={s.value} className="max-w-[220px]">
+                <p className="font-sans text-[22px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[28px]">
                   {s.value}
                 </p>
-                <p className="mt-1.5 font-mono text-xs font-medium leading-[1.4] tracking-[0.1em] text-text-onDarkSofter">
-                  {s.label}
-                </p>
+                {s.label && (
+                  <p className="mt-1.5 font-mono text-xs font-medium leading-[1.4] tracking-[0.1em] text-text-onDarkSofter">
+                    {s.label}
+                  </p>
+                )}
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative hidden min-h-[320px] items-center self-stretch sm:min-h-[420px] lg:flex lg:min-h-[560px]">
-          <div className="absolute bottom-2 left-0 flex flex-wrap gap-3.5 font-mono text-[11px] font-medium leading-none tracking-[0.1em] text-text-onDarkLine">
-            {flow.map((step, i) => (
-              <span key={step} className="flex items-center gap-3.5">
-                {step}
-                {i < flow.length - 1 && <span>→</span>}
-              </span>
             ))}
           </div>
         </div>

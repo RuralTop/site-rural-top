@@ -38,7 +38,7 @@ export const processSteps = [
   {
     n: "03",
     title: "Fornecemos",
-    body: "Equipamentos e componentes das principais marcas do mercado, com estoque de reposição.",
+    body: "Equipamentos e componentes das principais marcas do mercado.",
     accent: "green" as const,
   },
   {

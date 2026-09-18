@@ -40,10 +40,12 @@ export default function Process() {
           <h2 className="max-w-[16ch] font-sans text-[30px] font-semibold uppercase leading-[1.03] tracking-[-0.03em] sm:text-[46px] lg:text-[58px]">
             Não vendemos apenas irrigação. Entregamos o sistema.
           </h2>
-          <p className="max-w-[44ch] font-sans text-[15px] leading-[1.6] text-text-body sm:text-lg">
-            Antes de vender equipamento, precisamos entender sua área. O
-            projeto só está pronto quando a água chega na planta com a
-            pressão certa.
+          <p className="max-w-[60ch] font-sans text-[15px] leading-[1.6] text-text-body sm:text-lg">
+            Antes de indicar qualquer equipamento, precisamos entender a sua
+            área. Um projeto de irrigação precisa considerar as
+            características do terreno, da cultura, da fonte de água e da
+            operação para garantir uma distribuição eficiente e adequada às
+            necessidades da produção.
           </p>
         </div>
 
