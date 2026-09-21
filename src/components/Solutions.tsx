@@ -55,7 +55,7 @@ export default function Solutions() {
               <div
                 className={`flex flex-1 flex-col gap-3 ${
                   s.image ? "p-5 sm:p-8" : "p-5 sm:p-6"
-                } ${s.n === "04" ? "justify-center" : ""}`}
+                }`}
               >
                 <p
                   className={`font-mono text-xs font-semibold tracking-[0.12em] ${

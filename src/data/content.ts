@@ -272,18 +272,21 @@ export const solutions: Solution[] = [
     title: "Área grande, manejo previsível",
     body: "Projeto, fornecimento e implantação de sistemas de pivô, do bombeamento ao último emissor do lance.",
     span: 2,
+    image: { src: "/images/web/pivo-central-cerrado-verde.webp", alt: "Pivô central em operação irrigando lavoura de soja" },
   },
   {
     n: "05",
     tag: "BOMBEAMENTO",
     title: "Vazão e altura manométrica",
     body: "Bombas, motobombas e componentes hidráulicos dimensionados para o ponto de operação real. Uma bomba mal dimensionada custa energia todo mês.",
+    image: { src: "/images/web/bombeamento-casa-de-bomba.webp", alt: "Casa de bomba com motobomba e filtros de irrigação instalados" },
   },
   {
     n: "06",
     tag: "AUTOMAÇÃO",
     title: "Turnos de rega no controle",
     body: "Programadores, válvulas, solenoides e componentes para comandar a irrigação por setor.",
+    image: { src: "/images/web/automacao-quadro-valvulas.webp", alt: "Quadro de válvulas para automação e controle de setores de irrigação" },
   },
   {
     n: "07",
